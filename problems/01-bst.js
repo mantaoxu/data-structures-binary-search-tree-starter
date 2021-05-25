@@ -47,13 +47,23 @@ class BST {
         } else if(val > currentNode.val){
             return this.searchRecur(val, currentNode.right) // recursive this method.
         } else {
-            return true;
+            return true; // found the value;
         }  
     }
     
     // Perform an iterative search through the binary search tree
     searchIter(val) {
-        // Your code here
+        let curr = this.root; // decided the currentNode as the root;
+        while(curr !== null) {
+            if(val < curr.val){  //check the val , compare to the currNode value, change the pointer to the left;
+                curr = curr.left;  // change the pointer to the left;
+            } else if (val > curr.val){  //check the val , compare to the currNode value, change the pointer to the right;
+                curr = curr.right;  // change the pointer to the right;
+            } else {
+                return true;  // found the value;
+            }
+        }
+        return false;
     }
 
 /** need to print out the value of increasing order*/
