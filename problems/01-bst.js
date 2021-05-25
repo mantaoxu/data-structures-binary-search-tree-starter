@@ -35,22 +35,31 @@ class BST {
             }
         }    
     }
-/** need to print out the value of increasing order*/
-    inOrderPrint(currentNode=this.root){
-        if(!currentNode) return;
-
-        return[...inOrderPrint(currentNode.left), currentNode.value, ...inOrderPrint(currentNode.right)]
-    }
-
-
+    
+    
     // Perform a recursive search through the binary search tree
+    // find the target value
     searchRecur(val, currentNode=this.root) {
-        // Your code here
-    }
+        if(!currentNode) return false;
 
+        if(val < currentNode.val){ // if the val is < than currentNode'value, then the targetVal maybe in the left sub-tree;
+            return this.searchRecur(val, currentNode.left) // recursive this method.
+        } else if(val > currentNode.val){
+            return this.searchRecur(val, currentNode.right) // recursive this method.
+        } else {
+            return true;
+        }  
+    }
+    
     // Perform an iterative search through the binary search tree
     searchIter(val) {
         // Your code here
+    }
+
+/** need to print out the value of increasing order*/
+    inOrderPrint(currentNode=this.root){
+        if(!currentNode) return;
+        return[...inOrderPrint(currentNode.left), currentNode.value, ...inOrderPrint(currentNode.right)]
     }
 }
 
