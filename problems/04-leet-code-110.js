@@ -4,10 +4,7 @@
 // Hint: it may be helpful to get the height of your BST
 
 
-function getHeight(root){
-  if(!root) return -1;
-  return 1 + Math.max(getHeight(root.left), getHeight(root.right));
-};
+const { getHeight } = require("./03-get-height");
 
 function isBalanced(root) {
   if (!root) return true;
